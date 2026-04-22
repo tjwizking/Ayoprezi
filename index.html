@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayo Dawodu — A 2x Founder Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./founder-journey.css">
+</head>
+<body>
+
+    <!-- Slide Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- Slide Counter -->
+    <div id="slide-counter" class="slide-counter">
+        <span id="current-slide">01</span>
+        <span class="slide-separator">/</span>
+        <span id="total-slides">12</span>
+    </div>
+
+    <!-- Navigation Dots -->
+    <nav id="nav-dots" class="nav-dots" aria-label="Slide navigation"></nav>
+
+    <main id="presentation" class="presentation">
+
+        <!-- ============================================ -->
+        <!-- SLIDE 01: HERO / TITLE -->
+        <!-- ============================================ -->
+        <section class="slide slide--hero" data-slide="1">
+            <div class="slide__grain"></div>
+            <div class="slide__glow slide__glow--primary"></div>
+            <div class="slide__glow slide__glow--highlight"></div>
+            <div class="slide__content slide__content--center">
+                <div class="profile-photo animate-in" data-delay="0" style="margin-bottom: 2rem;">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <img src="./public/UGM-primary-white.png" alt="Ayo Dawodu" style="object-fit: contain; padding: 2rem; background: var(--bg-card); filter: none;">
+                </div>
+                <h1 class="hero-title animate-in" data-delay="100" style="margin-bottom: 0.5rem; font-size: clamp(4rem, 10vw, 8rem);">
+                    <span class="hero-title__line hero-title__line--accent">Ayo Dawodu</span>
+                </h1>
+                <p class="overline animate-in" data-delay="200" style="font-size: 1.25rem; margin-bottom: 2rem; color: var(--text-primary); letter-spacing: 0.2em;">
+                    Co-founder, UGiftMe
+                </p>
+                <div class="hero-tag animate-in" data-delay="300" style="border-color: var(--border-accent);">
+                    <span class="hero-tag__dot" style="background: var(--highlight); box-shadow: 0 0 16px var(--highlight-glow);"></span>
+                    <span class="hero-tag__text">The Founder's Journey</span>
+                </div>
+            </div>
+            <div class="slide__footer">
+                <span>Scroll to explore ↓</span>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 02: THE BEGINNING & VALIDATION -->
+        <!-- ============================================ -->
+        <section class="slide slide--split" data-slide="2">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">2013</span>
+                <span class="timeline-marker__chapter">Chapter 01</span>
+            </div>
+            <div class="slide__content slide__content--split">
+                <div class="split__text">
+                    <p class="overline animate-in">Starting Out</p>
+                    <h2 class="section-title animate-in" data-delay="100">Vali<span class="text-highlight">dation</span></h2>
+                    <p class="body-text animate-in" data-delay="200">
+                        It began as an MSc thesis at Lancaster University. What started as academic research quickly became an obsession.
+                    </p>
+                    <p class="body-text body-text--muted animate-in" data-delay="300">
+                        Through <b>Lean Startup Machine</b> I faced the first crucible: stepping out of the building to talk to real customers, proving that what we build must authentically match what people need. 
+                    </p>
+                </div>
+                <div class="split__media animate-in" data-delay="200">
+                    <div class="media-container media-aspect-video">
+                        <div class="media-hint">
+                            <span class="media-hint__icon">📸</span>
+                            <span class="media-hint__text">Lancaster/Lean Startup Photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 03: THE LAUNCHPAD & THE BOLD DECISION -->
+        <!-- ============================================ -->
+        <section class="slide slide--dark" data-slide="3">
+            <div class="slide__grain"></div>
+            <div class="slide__glow slide__glow--primary"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">2014–15</span>
+                <span class="timeline-marker__chapter">Chapter 02</span>
+            </div>
+            <div class="slide__content slide__content--split">
+                <div class="split__media animate-in" data-delay="100">
+                    <div class="media-grid">
+                        <div class="media-container media-aspect-square">
+                            <div class="media-hint">
+                                <span class="media-hint__icon">📸</span>
+                                <span class="media-hint__text">MEST Training</span>
+                            </div>
+                        </div>
+                        <div class="media-container media-aspect-square">
+                            <div class="media-hint">
+                                <span class="media-hint__icon">📸</span>
+                                <span class="media-hint__text">The Journey</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="split__text">
+                    <p class="overline animate-in">The Launchpad</p>
+                    <h2 class="section-title animate-in" data-delay="100">MEST & The<br><span class="text-accent">$50k Decision</span></h2>
+                    <p class="body-text animate-in" data-delay="200">
+                        The Meltwater Entrepreneurial School of Technology (MEST) in Ghana was the real launchpad. Training deeply in software and business strategy alongside top talent.
+                    </p>
+                    <p class="body-text animate-in" data-delay="300">
+                        Then came the boldest early decision: MEST & Jorn offered a $50k investment, and we walked away. Early on, I learned to say no to money that compromises the long-term vision.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 04: ACCELERATION -->
+        <!-- ============================================ -->
+        <section class="slide slide--accent" data-slide="4">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker timeline-marker--dark">
+                <span class="timeline-marker__year">2016–17</span>
+                <span class="timeline-marker__chapter">Chapter 03</span>
+            </div>
+            <div class="slide__content slide__content--center">
+                <p class="overline overline--dark animate-in">Acceleration</p>
+                <h2 class="section-title section-title--dark section-title--xl animate-in" data-delay="100">
+                    SpeedUp Africa<br><span class="bg-highlight-inline">& Arise Pitch Win</span>
+                </h2>
+                <p class="body-text body-text--dark body-text--centered body-text--wide animate-in" data-delay="200">
+                    Getting in front of investors like Tim Draper at SpeedUp Africa showed the power of the right room. Winning the Arise Pitch competition provided the external validation to know we were onto something scalable.
+                </p>
+                <div class="split__media animate-in" data-delay="300" style="margin-top: 3rem; max-width: 800px;">
+                    <div class="media-grid">
+                        <div class="media-container media-aspect-video media-container--dark">
+                            <div class="media-hint">
+                                <span class="media-hint__icon">🎬</span>
+                                <span class="media-hint__text">SpeedUp/Demo Video</span>
+                            </div>
+                        </div>
+                        <div class="media-container media-aspect-video media-container--dark">
+                            <div class="media-hint">
+                                <span class="media-hint__icon">📸</span>
+                                <span class="media-hint__text">Arise Pitch Win</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 05: GLOBAL RECOGNITION -->
+        <!-- ============================================ -->
+        <section class="slide slide--split" data-slide="5">
+            <div class="slide__grain"></div>
+            <div class="slide__glow slide__glow--highlight"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">2016–17</span>
+                <span class="timeline-marker__chapter">Chapter 04</span>
+            </div>
+            <div class="slide__content slide__content--split">
+                <div class="split__text">
+                    <p class="overline animate-in">A Global Stage</p>
+                    <h2 class="section-title animate-in" data-delay="100">Visa &<br><span class="text-accent">WorldRemit</span></h2>
+                    <p class="body-text animate-in" data-delay="200">
+                        Named globally as a finalist in the Visa Everywhere Initiative, and earning a feature from WorldRemit. We were no longer building for just our local market; we were competing on the world stage.
+                    </p>
+                </div>
+                <div class="split__media animate-in" data-delay="200">
+                    <div class="media-container media-aspect-video">
+                        <div class="media-hint">
+                            <span class="media-hint__icon">▶️</span>
+                            <span class="media-hint__text">WorldRemit Feature Video</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 06: PARTNERSHIPS & ALLIANCES -->
+        <!-- ============================================ -->
+        <section class="slide slide--dark" data-slide="6">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">2017–19</span>
+                <span class="timeline-marker__chapter">Chapter 05</span>
+            </div>
+            <div class="slide__content slide__content--split">
+                <div class="split__media animate-in" data-delay="100">
+                    <div class="media-container media-aspect-square">
+                        <div class="media-hint">
+                            <span class="media-hint__icon">🤝</span>
+                            <span class="media-hint__text">Facebook / Key Partners Panel</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="split__text">
+                    <p class="overline animate-in">Alliances</p>
+                    <h2 class="section-title animate-in" data-delay="100">Crucial<br><span class="text-highlight">Partnerships</span></h2>
+                    <p class="body-text animate-in" data-delay="200">
+                        Growth comes through alliances. From Meta/Facebook providing deep mentorship and resource access, to strategic collaborations with Tricia Biz and Wave Academies.
+                    </p>
+                    <div class="quote-block animate-in" data-delay="300">
+                        <span class="quote-block__mark">"</span>
+                        <p class="quote-block__text">Partnerships multiplied our reach exponentially across the continent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 07: FOUNDATION & VALIDATION -->
+        <!-- ============================================ -->
+        <section class="slide slide--split" data-slide="7">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">2018–19</span>
+                <span class="timeline-marker__chapter">Chapter 06</span>
+            </div>
+            <div class="slide__content slide__content--split">
+                <div class="split__text">
+                    <p class="overline animate-in">Ecosystem Trust</p>
+                    <h2 class="section-title animate-in" data-delay="100">TEF &<br><span class="text-accent">Founder Trust</span></h2>
+                    <p class="body-text animate-in" data-delay="200">
+                        Selected as a Tony Elumelu Foundation entrepreneur, backed by one of Africa's leading figures. 
+                    </p>
+                    <p class="body-text body-text--muted animate-in" data-delay="300">
+                        Shortly after, won the NES25 award, and received personal investment from a fellow Founders Institute entrepreneur. That founder-to-founder solidarity meant absolute trust.
+                    </p>
+                </div>
+                <div class="split__media animate-in" data-delay="200">
+                    <div class="media-grid">
+                        <div class="media-container media-aspect-square">
+                            <div class="media-hint">
+                                <span class="media-hint__icon">📸</span>
+                                <span class="media-hint__text">TEF Selection Photo</span>
+                            </div>
+                        </div>
+                        <div class="media-container media-aspect-square">
+                            <div class="media-hint">
+                                <span class="media-hint__icon">🏆</span>
+                                <span class="media-hint__text">NES25 / Hasfy Invests</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 08: COVID RESILIENCE -->
+        <!-- ============================================ -->
+        <section class="slide slide--highlight" data-slide="8">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker timeline-marker--dark">
+                <span class="timeline-marker__year">2020</span>
+                <span class="timeline-marker__chapter">Chapter 07</span>
+            </div>
+            <div class="slide__content slide__content--center">
+                <p class="overline overline--dark animate-in">Resilience</p>
+                <h2 class="section-title section-title--dark section-title--xl animate-in" data-delay="100">
+                    The COVID Pivot<br><span class="bg-accent-inline">on ChannelsTV</span>
+                </h2>
+                <p class="body-text body-text--dark body-text--centered body-text--wide animate-in" data-delay="200">
+                    When the pandemic hit, survival meant adapting fast. ChannelsTV featured our resilience story, showcasing how our technology pivoted to help keep independent businesses operational through global lockdowns.
+                </p>
+                <div class="split__media animate-in" data-delay="300" style="margin-top: 3rem; max-width: 650px;">
+                    <div class="media-container media-aspect-video media-container--dark">
+                        <div class="media-hint">
+                            <span class="media-hint__icon">▶️</span>
+                            <span class="media-hint__text">ChannelsTV Feature Video</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 09: EXPANSION -->
+        <!-- ============================================ -->
+        <section class="slide slide--dark" data-slide="9">
+            <div class="slide__grain"></div>
+            <div class="slide__glow slide__glow--primary"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">2021–22</span>
+                <span class="timeline-marker__chapter">Chapter 08</span>
+            </div>
+            <div class="slide__content slide__content--center">
+                <p class="overline animate-in">Ecosystem Expansion</p>
+                <h2 class="section-title section-title--xl animate-in" data-delay="100">Institutional<br><span class="text-accent">Support</span></h2>
+                <p class="body-text body-text--centered body-text--wide animate-in" data-delay="200">
+                    Partnerships with major institutional players expanded our footprint and solidified global credibility. It takes a village to sustain momentum.
+                </p>
+                <div class="org-grid animate-in" data-delay="300" style="margin-top: 2.5rem;">
+                    <div class="org-logo"><span>Barclays</span></div>
+                    <div class="org-logo"><span>Foundervine</span></div>
+                    <div class="org-logo"><span>GIZ</span></div>
+                    <div class="org-logo"><span>Visa</span></div>
+                    <div class="org-logo"><span>Interswitch</span></div>
+                    <div class="org-logo"><span>Paystack</span></div>
+                    <div class="org-logo"><span>Stripe</span></div>
+                    <div class="org-logo"><span>MEST</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 10: TRACTION & EXIT OPPORTUNITIES -->
+        <!-- ============================================ -->
+        <section class="slide slide--stats" data-slide="10">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">Present</span>
+                <span class="timeline-marker__chapter">Chapter 09</span>
+            </div>
+            <div class="slide__content slide__content--center">
+                <p class="overline animate-in">Traction & Growth</p>
+                <h2 class="section-title animate-in" data-delay="100">Intrinsic<br><span class="text-highlight">Value</span></h2>
+                <div class="stats-grid animate-in" data-delay="200">
+                    <div class="stat-card">
+                        <span class="stat-card__number">[X]k+</span>
+                        <span class="stat-card__label">Transactions<br>Processed</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card__number">[X]+</span>
+                        <span class="stat-card__label">Countries<br>Reached</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card__number">[X]+</span>
+                        <span class="stat-card__label">Businesses<br>Served</span>
+                    </div>
+                    <div class="stat-card stat-card--accent">
+                        <span class="stat-card__number">[X]+</span>
+                        <span class="stat-card__label">Exit Offers<br>Received</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 11: KEY LEARNINGS -->
+        <!-- ============================================ -->
+        <section class="slide slide--split" data-slide="11">
+            <div class="slide__grain"></div>
+            <div class="timeline-marker">
+                <span class="timeline-marker__year">Wisdom</span>
+                <span class="timeline-marker__chapter">Chapter 10</span>
+            </div>
+            <div class="slide__content slide__content--split">
+                <div class="split__text">
+                    <p class="overline animate-in">Reflections</p>
+                    <h2 class="section-title animate-in" data-delay="100">Key<br><span class="text-accent">Learnings</span></h2>
+                    <p class="body-text body-text--muted animate-in" data-delay="200">
+                        Distilled truth from 10+ years as a 2x technical founder.
+                    </p>
+                </div>
+                <div class="split__media">
+                    <div class="learnings-list">
+                        <div class="learning-item animate-in" data-delay="100">
+                            <span class="learning-item__number">01</span>
+                            <p class="learning-item__text">Building two companies teaches you that saying "no" to the wrong money is just as important as earning the right money.</p>
+                        </div>
+                        <div class="learning-item animate-in" data-delay="200">
+                            <span class="learning-item__number">02</span>
+                            <p class="learning-item__text">Your network truly is your net worth. Invest heavily into genuine founder relationships.</p>
+                        </div>
+                        <div class="learning-item animate-in" data-delay="300">
+                            <span class="learning-item__number">03</span>
+                            <p class="learning-item__text">The real product is the company itself. Build for people, not just for the hype.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 12: THANK YOU / CTA -->
+        <!-- ============================================ -->
+        <section class="slide slide--closing" data-slide="12">
+            <div class="slide__grain"></div>
+            <div class="slide__glow slide__glow--primary"></div>
+            <div class="slide__glow slide__glow--highlight"></div>
+            <div class="slide__content slide__content--center">
+                <h2 class="closing-title animate-in">
+                    <span class="closing-title__line">Thank</span>
+                    <span class="closing-title__line closing-title__line--accent">You.</span>
+                </h2>
+                <p class="body-text body-text--centered animate-in" data-delay="200">
+                    Building Loystar taught me how to start. Building UGiftMe taught me how to scale.<br>Every setback has simply been fuel for what comes next.
+                </p>
+                <div class="closing-meta animate-in" data-delay="300">
+                    <div class="closing-meta__item">
+                        <img src="./public/UGM-primary-orange.png" alt="UGiftMe" class="closing-logo">
+                    </div>
+                    <div class="closing-meta__divider"></div>
+                    <div class="closing-meta__item">
+                        <span class="closing-meta__label" style="color: var(--accent);">Ayo Dawodu</span>
+                        <span class="closing-meta__label" style="font-size: 0.75rem; opacity: 0.6;">Co-founder, UGiftMe</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./founder-journey.js" type="module"></script>
+</body>
+</html>
