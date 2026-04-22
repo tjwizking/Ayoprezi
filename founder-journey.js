@@ -273,4 +273,163 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ============================================
+    // GITHUB PUBLISH "SECRET ADMIN" MODE
+    // ============================================
+    const publishBtn = document.createElement('button');
+    publishBtn.innerHTML = '☁️ Publish to GitHub';
+    publishBtn.style.cssText = `
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        z-index: 10000;
+        background: var(--accent);
+        color: var(--bg-primary);
+        font-family: var(--font-body);
+        font-weight: 700;
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.3;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    `;
+    
+    publishBtn.addEventListener('mouseenter', () => { publishBtn.style.opacity = '1'; publishBtn.style.transform = 'scale(1.05)'; });
+    publishBtn.addEventListener('mouseleave', () => { publishBtn.style.opacity = '0.3'; publishBtn.style.transform = 'scale(1)'; });
+    document.body.appendChild(publishBtn);
+
+    publishBtn.addEventListener('click', async () => {
+        const token = prompt('Enter your GitHub Personal Access Token (PAT) to publish these changes directly to tjwizking/Ayoprezi:', '');
+        if (!token) return;
+
+        publishBtn.innerHTML = '🔄 Publishing...';
+        publishBtn.style.pointerEvents = 'none';
+
+        try {
+            const repoInfo = { owner: 'tjwizking', repo: 'Ayoprezi' };
+            const headers = {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            };
+
+            // 1. Fetch current index.html from github
+            let htmlRes = await fetch(`https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}/contents/index.html`, { headers });
+            if (!htmlRes.ok) throw new Error("Could not fetch index.html from GitHub");
+            const htmlData = await htmlRes.json();
+            
+            // Note: Data is base64 encoded. Some bytes might be multibyte utf8, so use a proper decode.
+            const decodedHtml = decodeURIComponent(escape(atob(htmlData.content)));
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(decodedHtml, "text/html");
+
+            // Define mapping selectors for text extraction identically to local app
+            const textSelectors = [
+                '.hero-title__line', '.section-title', '.overline', '.body-text',
+                '.hero-meta__value', '.hero-meta__label', '.quote-block__text',
+                '.learning-item__text', '.stat-card__number', '.stat-card__label',
+                '.closing-meta__label', '.timeline-marker__year', '.timeline-marker__chapter',
+                '.closing-title__line', '.hero-tag__text', '.timeline-event__label', 
+                '.timeline-event__year', '.org-logo span'
+            ];
+            const htmlTextElements = doc.querySelectorAll(textSelectors.join(', '));
+            const htmlMediaContainers = doc.querySelectorAll('.media-container, .profile-photo');
+
+            // 2. Iterate through localStorage and apply edits
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                
+                // TEXT EDITS
+                if (key.includes('momentum_slide_text_')) {
+                    const idx = parseInt(key.split('_').pop());
+                    if (htmlTextElements[idx]) {
+                        htmlTextElements[idx].innerHTML = localStorage.getItem(key);
+                    }
+                }
+                
+                // IMAGE EDITS
+                if (key.includes('momentum_slide_media_')) {
+                    const idx = parseInt(key.split('_').pop());
+                    const b64Data = localStorage.getItem(key);
+                    const container = htmlMediaContainers[idx];
+                    
+                    if (container && b64Data.startsWith('data:image')) {
+                        // Extract base64 pure string
+                        const base64Pure = b64Data.split(',')[1];
+                        const extMatch = b64Data.match(/data:image\/(.*);/);
+                        const ext = extMatch ? extMatch[1] : 'jpg';
+                        const filename = `upload_${Date.now()}_img${idx}.${ext}`;
+
+                        // Upload the new image file to GitHub
+                        publishBtn.innerHTML = `🔄 Uploading image ${idx}...`;
+                        const imgUploadRes = await fetch(`https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}/contents/public/${filename}`, {
+                            method: 'PUT',
+                            headers,
+                            body: JSON.stringify({
+                                message: `Auto-uploading image for container ${idx}`,
+                                content: base64Pure,
+                                branch: 'main'
+                            })
+                        });
+
+                        if (imgUploadRes.ok) {
+                            // Find or create img tag in the detached DOM container
+                            let imgTag = container.querySelector('img');
+                            let videoTag = container.querySelector('video');
+                            let hintTag = container.querySelector('.media-hint');
+
+                            if (videoTag) videoTag.remove();
+                            if (hintTag) hintTag.style.display = 'none';
+
+                            if (!imgTag) {
+                                imgTag = doc.createElement('img');
+                                container.appendChild(imgTag);
+                            }
+                            // Inject public path for HTML
+                            imgTag.setAttribute('src', `./public/${filename}`);
+                            imgTag.style.objectFit = 'cover';
+                            imgTag.style.padding = '0';
+                            imgTag.style.filter = 'none';
+                        }
+                    }
+                }
+            }
+
+            // 3. Serialize HTML back to string
+            publishBtn.innerHTML = '🔄 Committing HTML...';
+            const newHtmlContent = doc.documentElement.outerHTML;
+            // Note: need to safely encode to base64
+            const encodedHtml = btoa(unescape(encodeURIComponent("<!DOCTYPE html>\n" + newHtmlContent)));
+
+            // 4. Update the index.html on GitHub
+            const htmlUpdateRes = await fetch(`https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}/contents/index.html`, {
+                 method: 'PUT',
+                 headers,
+                 body: JSON.stringify({
+                     message: "Published live page edits to repo via Admin UI",
+                     content: encodedHtml,
+                     sha: htmlData.sha,
+                     branch: 'main'
+                 })
+            });
+
+            if (!htmlUpdateRes.ok) throw new Error("Committing HTML failed!");
+
+            // 5. Clean up localStorage to prevent re-submitting stalely 
+            localStorage.clear();
+            publishBtn.innerHTML = '✅ Published!';
+            setTimeout(() => { publishBtn.innerHTML = '☁️ Publish to GitHub'; }, 3000);
+
+        } catch (error) {
+            console.error(error);
+            alert("Error publishing to GitHub: " + error.message);
+            publishBtn.innerHTML = '⚠️ Error. Try again.';
+        } finally {
+            publishBtn.style.pointerEvents = 'auto';
+        }
+    });
+
 });
